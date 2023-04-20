@@ -126,9 +126,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
 
         P(A, B, C, D,  0,  7, 0xD76AA478);
         //M1
-        /*tmp = calc_new(A, 0xa000820, 0x84200000, 0x0, ~B);
-        M[0] += S((tmp - A), 7);
-        A = tmp;*/
         if(mode)
         {
             tmp = A & ~0xa000820 & 0xFFFFFFFF;
@@ -143,9 +140,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
 
         P(D, A, B, C,  1, 12, 0xE8C7B756);
         //M1
-        /*tmp = calc_new(D, 0x2208026, 0x8c000800, 0x701f10c0, A);
-        M[1] += S((tmp-D),12);
-        D = tmp;*/
         if(mode)
         {
             tmp = D & ~0x2208026 & 0xFFFFFFFF;
@@ -158,9 +152,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
         //tu nic
         P(C, D, A, B,  2, 17, 0x242070DB);
         //M1
-        /*tmp = calc_new(C, 0x40201080, 0x3e1f0966, 0x80000018, D);
-        M[2] += S((tmp - C), 17);
-        C = tmp;*/
         if(mode)
         {
             tmp = C & ~0x40201080 & 0xFFFFFFFF;
@@ -174,9 +165,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
 
         P(B, C, D, A,  3, 22, 0xC1BDCEEE);
         //M1
-        /*tmp = calc_new(B, 0x443b19ee, 0x3a040010, 0x80000601, C);
-        M[3] += S((tmp - B), 22);
-        B = tmp;*/
         if(mode)
         {
             tmp = B & ~0x443b19ee & 0xFFFFFFFF;
@@ -190,7 +178,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
 
         P(A, B, C, D,  4,  7, 0xF57C0FAF);
         //M1
-        //tmp = calc_new(A, 0xb41011af, 0x482f0e50, 0x80000000, ~B);
         if(mode)
         {
             tmp = A & ~0xb41011af & 0xFFFFFFFF;
@@ -204,9 +191,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
 
         P(D, A, B, C,  5, 12, 0x4787C62A);
         //M1
-        /*tmp = calc_new(D, 0x9a1113a9, 0x4220c56, 0x80000000, A);
-        M[5] += S((tmp - D), 12);
-        D = tmp;*/
         if(mode)
         {
             tmp = D & ~0x9a1113a9 & 0xFFFFFFFF;
@@ -219,9 +203,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
         //tmp = calc_new(D, 0x888043a4, 0x27fbc41, 0x7500001a, A);
         P(C, D, A, B,  6, 17, 0xA8304613);
         //M1
-        /*tmp = calc_new(C, 0x83201c0, 0x16011e01, 0x81808000, D ^ 0x80000000);
-        M[6] += S((tmp - C), 17);
-        C = tmp;*/
         if(mode)
         {
             tmp = C & ~0x83201c0 & 0xFFFFFFFF;
@@ -234,9 +215,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
         //tmp = calc_new(C, 0xfc0107df, 0x3fef820, 0x0,D);
         P(B, C, D, A,  7, 22, 0xFD469501);
         //M1
-        /*tmp = calc_new(B, 0x1b810001, 0x043283c0, 0x80000002, C);
-        M[7] += S((tmp - B), 22);
-        B = tmp;*/
         if(mode)
         {
             tmp = B & ~0x1b810001 & 0xFFFFFFFF;
@@ -250,9 +228,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
 
         P(A, B, C, D,  8,  7, 0x698098D8);
         //M1
-        /*tmp = calc_new(A, 0x3828202, 0x1c0101c1, 0x80001000, B);
-        M[8] += S((tmp - A), 7);
-        A = tmp;*/
         if(mode)
         {
             tmp = A & ~0x3828202 & 0xFFFFFFFF;
@@ -266,9 +241,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
 
         P(D, A, B, C,  9, 12, 0x8B44F7AF);
         //M1
-        /*tmp = calc_new(D, 0x41003, 0x078383c0, 0x80000000, A);
-        M[9] += S((tmp - D), 12);
-        D = tmp;*/
         if(mode)
         {
             tmp = D & ~0x41003 & 0xFFFFFFFF;
@@ -282,9 +254,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
 
         P(C, D, A, B, 10, 17, 0xFFFF5BB1);
         //M1
-        /*tmp = calc_new(C, 0x21000, 0x000583c3, 0x80086000, D);
-        M[10] += S((tmp - C), 17);
-        C = tmp;*/
         if(mode)
         {
             tmp = C & ~0x21000 & 0xFFFFFFFF;
@@ -298,9 +267,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
 
         P(B, C, D, A, 11, 22, 0x895CD7BE);
         //M1
-        /*tmp = calc_new(B, 0x7e000, 0x00081080, 0xff000000, C);
-        M[11] += S((tmp - B), 22);
-        B = tmp;*/
         if(mode)
         {
             tmp = B & ~0x7e000 & 0xFFFFFFFF;
@@ -314,9 +280,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
 
         P(A, B, C, D, 12,  7, 0x6B901122);
         //M1
-        //tmp = calc_new(A, 0x40000080, 0x3f0fe008, 0x80000000, ~B);
-        //M[12] += S((tmp - A), 7);
-        //A = tmp;
         if(mode)
         {
             tmp = A & ~0x40000080 & 0xFFFFFFFF;
@@ -329,9 +292,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
         //tmp = calc_new(A,0x82000180, 0x410fe008, 0x0, ~B);
         P(D, A, B, C, 13, 12, 0xFD987193);
         //M1
-        /*tmp = calc_new(D, 0x3f040000, 0x400be088, 0x80000000, A);
-        M[13] += S((tmp - D), 12);
-        D = tmp;*/
         if(mode)
         {
             tmp = D & ~0x3f040000 & 0xFFFFFFFF;
@@ -345,9 +305,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
 
         P(C, D, A, B, 14, 17, 0xA679438E);
         //M1
-        /*tmp = calc_new(C, 0x02008008, 0x7d000000, 0x80000000, D);
-        M[14] += S((tmp - C), 17);
-        C = tmp;*/
         if(mode)
         {
             tmp = C & ~0x02008008 & 0xFFFFFFFF;
@@ -361,9 +318,6 @@ int mbedtls_2nd_iter_md5(Context *ctx,
 
         P(B, C, D, A, 15, 22, 0x49B40821);
         //M1
-        /*tmp = calc_new(B, 0x00000000, 0x20000000, 0x80000000, C);
-        M[15] += S((tmp - B), 22);
-        B = tmp;*/
         if(mode)
         {
             tmp = B & ~0x00000000 & 0xFFFFFFFF;

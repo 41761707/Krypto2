@@ -1,3 +1,0 @@
-na zero:  0x2208026
-na jeden:  0x8c000800
-na inną:  0x701f10c0
